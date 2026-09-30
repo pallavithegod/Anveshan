@@ -56,18 +56,18 @@ function Event({
           isLgScreen ? className : undefined,
         )}
       >
-        <div className=" sm:self-start  ">
+        <div className="w-[52px] sm:w-[76px] lg:w-auto shrink-0 flex justify-center sm:self-start">
           <motion.h2
             style={{ color }}
-            className="  font-sketch-block font-normal text-[70px]  sm:text-[100px]  md:text-[130px] lg:text-[130px] xlg:text-[200px] xl:text-[220px] 2xl:text-[280px] leading-[120%] text-white/40  tracking-[6px]"
+            className="font-sketch-block font-normal text-[70px] sm:text-[100px] md:text-[130px] lg:text-[130px] xlg:text-[200px] xl:text-[220px] 2xl:text-[280px] leading-[120%] text-white/40 tracking-[6px] text-center"
           >
             {eventNumber}
           </motion.h2>
         </div>
-        <div className=" lg:py-4 px-2 sm:px-6 flex flex-col">
+        <div className="lg:py-4 px-2 sm:px-6 flex flex-col flex-1 min-w-0">
           <Typography.H5
-            className=" text-primary leading-none pt-2 lg:pt-0 sm:leading-10 font-semibold
-          text-base     sm:text-xl lg:text-xl xlg:text-3xl 2xl:text-4xl "
+            className="text-primary leading-none pt-2 lg:pt-0 sm:leading-10 font-semibold
+          text-base sm:text-xl lg:text-xl xlg:text-3xl 2xl:text-4xl"
           >
             {title}
           </Typography.H5>

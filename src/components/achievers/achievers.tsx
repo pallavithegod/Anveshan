@@ -6,8 +6,8 @@ import Link from "next/link";
 import { Linkedin } from "lucide-react";
 import confetti from "canvas-confetti";
 import { Achiever, achieversData } from "@/config/achievers";
+import DraggableMarquee from "@/components/ui/draggable-marquee";
 import Typography from "../Typography";
-import styles from "./achievers.module.css";
 
 const SYNONYMS = [
   "ACHIEVER",
@@ -34,7 +34,7 @@ function AchieverCard({
   const synonym = SYNONYMS[(achiever.id + index) % SYNONYMS.length];
 
   return (
-    <article className="flex flex-col justify-between w-[310px] sm:w-[360px] h-[240px] sm:h-[250px] flex-shrink-0 p-4 sm:p-5 rounded-2xl bg-[#141414] border-2 border-neutral-800 hover:border-primary shadow-[3px_3px_0px_0px_#000000] hover:shadow-[5px_5px_0px_0px_#000000] transition-all duration-200 select-none group">
+    <article className="flex flex-col justify-between w-[230px] sm:w-[360px] h-[195px] sm:h-[250px] flex-shrink-0 p-3.5 sm:p-5 rounded-2xl bg-[#141414] border-2 border-neutral-800 hover:border-primary shadow-[3px_3px_0px_0px_#000000] hover:shadow-[5px_5px_0px_0px_#000000] transition-all duration-200 select-none group">
       {/* Top: Clickable LinkedIn Icon + Dynamic Synonym */}
       <div className="flex items-center justify-between">
         <Link
@@ -42,28 +42,28 @@ function AchieverCard({
           target="_blank"
           rel="noopener noreferrer"
           onClick={(e) => e.stopPropagation()}
-          className="p-1.5 rounded-lg bg-neutral-900 border border-neutral-700/80 text-primary hover:text-white hover:border-primary transition-colors shadow-[1px_1px_0px_0px_#000000] active:translate-x-[1px] active:translate-y-[1px]"
+          className="p-1 sm:p-1.5 rounded-lg bg-neutral-900 border border-neutral-700/80 text-primary hover:text-white hover:border-primary transition-colors shadow-[1px_1px_0px_0px_#000000] active:translate-x-[1px] active:translate-y-[1px]"
           aria-label={`${achiever.name} LinkedIn Profile`}
         >
-          <Linkedin size={18} strokeWidth={2.2} />
+          <Linkedin size={14} className="sm:w-[18px] sm:h-[18px]" strokeWidth={2.2} />
         </Link>
-        <span className="font-cabin-sketch text-[9px] sm:text-[10px] text-neutral-400 uppercase tracking-widest">
+        <span className="font-cabin-sketch text-[8px] sm:text-[10px] text-neutral-400 uppercase tracking-widest">
           // {synonym}
         </span>
       </div>
 
       {/* Description: Post and Experience (Ex in yellow, achievements in neutral) */}
-      <div className="my-auto py-1">
+      <div className="my-auto py-0.5 sm:py-1">
         {/* Post */}
-        <p className="text-white font-averta-std text-sm sm:text-base font-semibold leading-snug line-clamp-2">
+        <p className="text-white font-averta-std text-xs sm:text-base font-semibold leading-snug line-clamp-2">
           {achiever.role}
         </p>
 
         {/* Experience: 'Ex: ...' highlighted in golden yellow */}
         {(achiever.exrole || achiever.achievements) && (
-          <p className="font-averta-std text-xs sm:text-sm mt-1.5 leading-snug line-clamp-2">
+          <p className="font-averta-std text-[10px] sm:text-sm mt-0.5 sm:mt-1.5 leading-snug line-clamp-1 sm:line-clamp-2">
             {achiever.exrole && (
-              <span className="text-[#FFBE0D] font-medium mr-1.5">
+              <span className="text-[#FFBE0D] font-medium mr-1 sm:mr-1.5">
                 Ex: {achiever.exrole}
               </span>
             )}
@@ -77,8 +77,8 @@ function AchieverCard({
       </div>
 
       {/* Footer: Profile Photo + Name & Slightly Decreased Batch Size */}
-      <div className="flex items-center gap-3 pt-2.5 border-t border-neutral-800">
-        <div className="relative w-10 h-10 sm:w-11 sm:h-11 rounded-full overflow-hidden border-2 border-primary/40 bg-neutral-900 shrink-0">
+      <div className="flex items-center gap-2.5 sm:gap-3 pt-2 sm:pt-2.5 border-t border-neutral-800">
+        <div className="relative w-8 h-8 sm:w-11 sm:h-11 rounded-full overflow-hidden border-2 border-primary/40 bg-neutral-900 shrink-0">
           <Image
             src={achiever.image}
             alt={achiever.name}
@@ -88,10 +88,10 @@ function AchieverCard({
           />
         </div>
         <div className="flex flex-col min-w-0">
-          <strong className="font-sketch-block text-white text-base sm:text-lg font-bold leading-tight truncate">
+          <strong className="font-sketch-block text-white text-sm sm:text-lg font-bold leading-tight truncate">
             {achiever.name}
           </strong>
-          <span className="font-cabin-sketch text-neutral-400 text-[10px] sm:text-xs tracking-wider uppercase">
+          <span className="font-cabin-sketch text-neutral-400 text-[9px] sm:text-xs tracking-wider uppercase">
             Batch: {achiever.batch}
           </span>
         </div>
@@ -220,35 +220,37 @@ export default function AchieversSection() {
       </div>
 
       {/* Scrolling Marquee Container with side fade gradients */}
-      <div className={styles.marqueeContainer}>
+      <div className="relative w-full flex flex-col gap-4 sm:gap-6 overflow-hidden">
         {/* Edge Fade Gradients */}
         <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-8 sm:w-28 bg-gradient-to-r from-black via-black/80 to-transparent z-10" />
         <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-8 sm:w-28 bg-gradient-to-l from-black via-black/80 to-transparent z-10" />
 
         {/* Row 1: Scrolling Left */}
-        <div className={`${styles.marqueeRow} ${styles.marqueeRowLeft}`}>
-          <div className={styles.marqueeTrack}>
-            {[...row1, ...row1].map((achiever, index) => (
-              <AchieverCard
+        <div className="w-full">
+          <DraggableMarquee speed={32} direction="left" pauseOnHover={true}>
+            {row1.map((achiever, index) => (
+              <div
                 key={`r1-${achiever.id}-${index}`}
-                achiever={achiever}
-                index={index}
-              />
+                className="px-2 sm:px-2.5 py-2"
+              >
+                <AchieverCard achiever={achiever} index={index} />
+              </div>
             ))}
-          </div>
+          </DraggableMarquee>
         </div>
 
         {/* Row 2: Scrolling Right */}
-        <div className={`${styles.marqueeRow} ${styles.marqueeRowRight}`}>
-          <div className={styles.marqueeTrack}>
-            {[...row2, ...row2].map((achiever, index) => (
-              <AchieverCard
+        <div className="w-full">
+          <DraggableMarquee speed={30} direction="right" pauseOnHover={true}>
+            {row2.map((achiever, index) => (
+              <div
                 key={`r2-${achiever.id}-${index}`}
-                achiever={achiever}
-                index={index + 11}
-              />
+                className="px-2 sm:px-2.5 py-2"
+              >
+                <AchieverCard achiever={achiever} index={index + 11} />
+              </div>
             ))}
-          </div>
+          </DraggableMarquee>
         </div>
       </div>
     </section>

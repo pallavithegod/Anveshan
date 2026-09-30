@@ -15,7 +15,7 @@ const filesToKeepAsImages = ["line-132.svg", "line-134.svg", "line-133.svg"];
 
 export const HeroDesktop = () => {
   return (
-    <div className="w-full overflow-hidden ">
+    <div className="w-full overflow-hidden pb-4">
       <div className="flex flex-row px-[5vw]">
         {/* Left Column */}
         <div className="flex flex-col h-[25dvh] justify-between flex-shrink-0">
@@ -128,7 +128,7 @@ export const HeroDesktop = () => {
         </div>
       </div>
 
-      <div className="-mt-[2vw] font-sketch-block text-[1.85vw] text-center mb-3 text-white">
+      <div className="-mt-[3.6vw] xl:-mt-[4.2vw] font-sketch-block text-[1.85vw] text-center mb-1.5 lg:mb-2 text-white">
         ENTER <span className="text-[#FFBE0D]">•</span> THE{" "}
         <span className="text-[#FFBE0D]">•</span> ARENA
       </div>

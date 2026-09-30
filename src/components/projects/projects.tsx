@@ -82,38 +82,41 @@ export default function ProjectsSection() {
                 shadow={true}
                 className="w-full group !h-[260px] sm:!h-[380px] lg:!h-[440px]"
                 front={
-                  <div className="relative p-3.5 sm:p-4 lg:p-5 h-full flex flex-col justify-between bg-gradient-to-b from-[#181818] to-[#121212] select-none rounded-[18px]">
-                    <div>
-                      {/* Header: Pure Sketch Category Tag & Flip Hint */}
-                      <div className="flex items-center justify-between gap-2 mb-2 sm:mb-3">
-                        <span className="font-cabin-sketch text-[9px] sm:text-xs tracking-wider uppercase text-primary font-bold truncate max-w-[75%]">
-                          // {project.Work}
-                        </span>
-                        <span className="font-cabin-sketch text-[9px] sm:text-xs text-neutral-400 group-hover:text-primary transition-colors flex items-center gap-1 uppercase tracking-wider select-none shrink-0">
-                          <RotateCw
-                            size={10}
-                            className="transition-transform duration-500 group-hover:rotate-180 text-primary/80"
-                          />
-                          <span className="hidden sm:inline">Flip</span>
-                        </span>
-                      </div>
+                  <div className="relative p-3 sm:p-4 lg:p-5 h-full flex flex-col justify-between bg-gradient-to-b from-[#181818] to-[#121212] select-none rounded-[18px] overflow-hidden">
+                    {/* Upper Body */}
+                    <div className="flex-1 min-h-0 flex flex-col justify-between">
+                      <div>
+                        {/* Header: Pure Sketch Category Tag & Flip Hint */}
+                        <div className="flex items-center justify-between gap-2 mb-1.5 sm:mb-3 shrink-0">
+                          <span className="font-cabin-sketch text-[9px] sm:text-xs tracking-wider uppercase text-primary font-bold truncate max-w-[75%]">
+                            // {project.Work}
+                          </span>
+                          <span className="font-cabin-sketch text-[9px] sm:text-xs text-neutral-400 group-hover:text-primary transition-colors flex items-center gap-1 uppercase tracking-wider select-none shrink-0">
+                            <RotateCw
+                              size={10}
+                              className="transition-transform duration-500 group-hover:rotate-180 text-primary/80"
+                            />
+                            <span className="hidden sm:inline">Flip</span>
+                          </span>
+                        </div>
 
-                      {/* Project Title */}
-                      <div className="mt-1 sm:mt-1.5 mb-2 sm:mb-2.5">
-                        <Typography.H3 className="font-sketch-block text-lg sm:text-xl lg:text-2xl text-white group-hover:text-primary transition-colors tracking-wide leading-tight line-clamp-1 sm:line-clamp-2">
-                          {project.name}
-                        </Typography.H3>
-                      </div>
+                        {/* Project Title */}
+                        <div className="mb-1 sm:mb-2 shrink-0">
+                          <Typography.H3 className="font-sketch-block text-base sm:text-xl lg:text-2xl text-white group-hover:text-primary transition-colors tracking-wide leading-tight line-clamp-1 sm:line-clamp-2">
+                            {project.name}
+                          </Typography.H3>
+                        </div>
 
-                      {/* Description with Left Vertical Greyish Accent Line */}
-                      <div className="relative pl-2 sm:pl-3 my-1.5 sm:my-2 border-l-2 border-neutral-600">
-                        <p className="text-[10px] sm:text-xs lg:text-sm text-neutral-300 font-averta-std leading-snug sm:leading-relaxed">
-                          {project.description}
-                        </p>
+                        {/* Description with Left Vertical Greyish Accent Line & phone ellipsis */}
+                        <div className="relative pl-2 sm:pl-3 my-1 sm:my-2 border-l-2 border-neutral-600">
+                          <p className="text-[10px] sm:text-xs lg:text-sm text-neutral-300 font-averta-std leading-snug sm:leading-relaxed line-clamp-3 sm:line-clamp-none">
+                            {project.description}
+                          </p>
+                        </div>
                       </div>
 
                       {/* Author / Builder Info */}
-                      <div className="mt-2 sm:mt-2.5">
+                      <div className="mt-auto pt-1.5 sm:pt-2 shrink-0">
                         <div className="flex items-center gap-1.5">
                           <span className="font-cabin-sketch text-[9px] sm:text-xs uppercase tracking-wider text-neutral-400">
                             Built by:
@@ -149,8 +152,8 @@ export default function ProjectsSection() {
                       </div>
                     </div>
 
-                    {/* Footer Action Buttons - Equal 50/50 Ratio */}
-                    <div className="pt-2 sm:pt-3 border-t border-neutral-800/80 mt-auto">
+                    {/* Sticky Footer Action Buttons - Pinned at the bottom, zero overflow */}
+                    <div className="sticky bottom-0 left-0 right-0 pt-2 sm:pt-3 border-t border-neutral-800/80 bg-gradient-to-t from-[#121212] via-[#121212] to-transparent z-20 shrink-0 mt-2">
                       <div className="flex items-center gap-1.5 sm:gap-2">
                         {project.Deployment && (
                           <Link
@@ -196,7 +199,7 @@ export default function ProjectsSection() {
                 back={
                   <div className="relative w-full h-full bg-[#141414] overflow-hidden flex flex-col justify-between select-none p-3 sm:p-4 rounded-[18px]">
                     {/* Top Bar: Category & Flip Back */}
-                    <div className="flex items-center justify-between gap-1 mb-1 sm:mb-2">
+                    <div className="flex items-center justify-between gap-1 mb-1 sm:mb-2 shrink-0">
                       <div className="truncate max-w-[65%]">
                         <span className="font-cabin-sketch text-[8px] sm:text-[10px] tracking-wider uppercase text-primary font-bold block truncate">
                           // {project.Work}
@@ -222,8 +225,8 @@ export default function ProjectsSection() {
                       />
                     </div>
 
-                    {/* Bottom Action Bar - Equal 50/50 Ratio */}
-                    <div className="pt-1.5 sm:pt-2 border-t border-neutral-800/80 mt-1">
+                    {/* Bottom Sticky Action Bar */}
+                    <div className="sticky bottom-0 left-0 right-0 pt-1.5 sm:pt-2 border-t border-neutral-800/80 bg-[#141414] mt-1 shrink-0 z-20">
                       <div className="flex items-center gap-1.5 sm:gap-2">
                         {project.Deployment && (
                           <Link

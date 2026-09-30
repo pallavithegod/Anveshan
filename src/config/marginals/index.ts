@@ -1,11 +1,11 @@
 export const navItems = [
   { name: "About", href: "/#about" },
-  { name: "Stats", href: "/#stats" },
   { name: "Projects", href: "/#projects" },
   { name: "Team", href: "/#team" },
   { name: "Achievers", href: "/#achievers" },
   { name: "Events", href: "/#events" },
   { name: "Contact", href: "/#contact" },
+  { name: "Reforged", href: "https://reforged.anveshan.dev" },
 ];
 
 export const logo = {

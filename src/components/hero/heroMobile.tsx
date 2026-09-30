@@ -92,14 +92,14 @@ export const HeroMobile = React.memo(() => {
         </div>
 
         {/* Vertical Text on the Right */}
-        <div className="absolute top-[16%] right-[2.5%] flex-shrink-0 z-10 pointer-events-none">
-          <div className="flex flex-col items-center gap-1 font-averta-std">
+        <div className="absolute top-[12%] right-[2.5%] flex-shrink-0 z-10 pointer-events-none">
+          <div className="flex flex-col items-center gap-1.5 font-averta-std">
             {textItems.map((item) => (
               <div key={item.id} className="flex flex-col items-center">
                 {item.text.split("").map((char, charIndex) => (
                   <div
                     key={`${item.id}-${charIndex}`}
-                    className={`text-white/70 text-center leading-none text-[8px] sm:text-[9px] ${
+                    className={`text-white/70 text-center leading-none py-[1.5px] sm:py-[2px] text-[8px] sm:text-[9px] ${
                       item.isBold ? "font-bold text-white/90" : "font-light"
                     }`}
                   >
@@ -108,14 +108,14 @@ export const HeroMobile = React.memo(() => {
                 ))}
               </div>
             ))}
-            <div className="w-3.5 h-3.5 bg-[#262626] mt-2" />
+            <div className="w-3.5 h-3.5 bg-[#262626] mt-1.5" />
           </div>
         </div>
 
         {/* Bottom Explorer Tagline */}
         <div className="mt-3 sm:mt-5 font-sketch-block text-base sm:text-lg text-center text-white tracking-wide">
-          EXPLORE <span className="text-[#FFBE0D]">•</span> INNOVATE{" "}
-          <span className="text-[#FFBE0D]">•</span> BUILD
+          ENTER <span className="text-[#FFBE0D]">•</span> THE{" "}
+          <span className="text-[#FFBE0D]">•</span> ARENA
         </div>
 
         {/* Action Buttons */}

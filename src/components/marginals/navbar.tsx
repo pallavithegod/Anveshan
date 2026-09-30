@@ -74,7 +74,7 @@ function DesktopNavbar({ isWhite }: { isWhite: boolean }) {
 
       {/* Nav Links */}
       <div className="h-full flex justify-center mx-auto">
-        <div className="flex gap-[4vw] xl:gap-[5vw] w-full justify-center items-center">
+        <div className="flex gap-[3vw] xl:gap-[4vw] w-full justify-center items-center">
           {navItems.map((item: { name: string; href: string }) => (
             <button
               key={item.name}
@@ -86,9 +86,11 @@ function DesktopNavbar({ isWhite }: { isWhite: boolean }) {
             >
               <Typography.P
                 className={`!text-sm md:!text-base mb-0 text-center font-semibold transition-colors duration-200 ${
-                  isWhite
-                    ? "text-neutral-900 group-hover:text-primary"
-                    : "text-neutral-300 group-hover:text-primary"
+                  item.name === "Reforged"
+                    ? "text-primary hover:text-amber-300 font-bold"
+                    : isWhite
+                      ? "text-neutral-900 group-hover:text-primary"
+                      : "text-neutral-300 group-hover:text-primary"
                 }`}
               >
                 {item.name}
@@ -237,7 +239,7 @@ export default function Navbar() {
 
       {/* Fullscreen Mobile Drawer as Sibling (Z-[100] Solid Background, Overflow Protected) */}
       <div
-        className={`fixed inset-0 bg-[#0a0a0a]/98 backdrop-blur-xl z-[100] flex flex-col justify-between px-5 sm:px-6 py-4 overflow-y-auto overscroll-contain transition-opacity duration-300 ease-in-out lg:hidden ${
+        className={`fixed inset-0 bg-[#0a0a0a] z-[100] flex flex-col justify-between px-5 sm:px-6 py-4 overflow-y-auto overscroll-contain transition-opacity duration-300 ease-in-out lg:hidden ${
           isOpen
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
@@ -268,36 +270,42 @@ export default function Navbar() {
           </button>
         </div>
 
-        {/* Drawer Links: Compact spacing ensuring all 7 options fit effortlessly */}
+        {/* Drawer Links */}
         <div className="flex flex-col items-center justify-center my-auto py-3 space-y-2 sm:space-y-3.5 w-full">
-          {navItems.map((item: { name: string; href: string }) => (
-            <button
-              key={item.name}
-              onClick={(e) => {
-                e.preventDefault();
-                handleScrollToSection(item.href);
-                setIsOpen(false);
-              }}
-              className="transition-colors py-1 px-4 rounded-lg hover:bg-white/5 active:bg-white/10 w-full max-w-xs text-center"
-            >
-              <span className="font-sketch-block text-xl sm:text-2xl text-white hover:text-primary transition-colors tracking-wide">
-                {item.name}
-              </span>
-            </button>
-          ))}
+          {navItems
+            .filter((item) => item.name !== "Reforged")
+            .map((item: { name: string; href: string }) => (
+              <button
+                key={item.name}
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleScrollToSection(item.href);
+                  setIsOpen(false);
+                }}
+                className="transition-colors py-1 px-4 rounded-lg hover:bg-white/5 active:bg-white/10 w-full max-w-xs text-center"
+              >
+                <span className="font-sketch-block text-xl sm:text-2xl text-white hover:text-primary transition-colors tracking-wide">
+                  {item.name}
+                </span>
+              </button>
+            ))}
         </div>
 
-        {/* Drawer Footer / CTA */}
+        {/* Drawer Footer / CTA: Reforged Website */}
         <div className="flex justify-center shrink-0 pt-2 pb-4">
           <Button
-            className="h-11 !px-6 min-w-[200px] flex items-center justify-center"
+            className="h-11 !px-6 min-w-[200px] flex items-center justify-center cursor-pointer"
             onClick={() => {
-              handleScrollToSection("/#contact");
+              window.open(
+                "https://reforged.anveshan.dev",
+                "_blank",
+                "noopener,noreferrer",
+              );
               setIsOpen(false);
             }}
           >
             <span className="text-black font-bold text-sm sm:text-base font-cabin-sketch uppercase tracking-wider">
-              Contact Us
+              Reforged
             </span>
           </Button>
         </div>
