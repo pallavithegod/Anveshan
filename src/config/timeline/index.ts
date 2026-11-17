@@ -27,8 +27,8 @@ export const timelineData = {
     {
       eventNumber: 4,
       title: "Reforged '26 Flagship Hackathon",
-      duration: "15 - 30 Oct 2026",
-      description: `Our upcoming multi-stage hybrid hackathon featuring n8n automations, Agentic AI tracks, with exciting prizes and rewards, and an offline finale at BPIT, Delhi.`,
+      duration: "18 - 28 Oct 2026",
+      description: `Anveshan's premier flagship hackathon, uniting 600+ builders across n8n, Agentic AI, Gemma, and Open Innovation, culminating in an electrifying offline finale at BPIT.`,
       className:
         "absolute lg:top-[685%] xlg:top-[700%] xl:top-[650%] 2xl:top-[680%] lg:right-[-8%] xlg:right-[-6%] xl:right-[-2%]",
     },

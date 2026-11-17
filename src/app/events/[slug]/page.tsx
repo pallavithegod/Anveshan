@@ -23,6 +23,7 @@ import {
 import { eventsData } from "@/config/events";
 import Typography from "@/components/Typography";
 import ScrollToTopOnMount from "@/components/events/scroll-to-top";
+import EventGallery from "@/components/events/event-gallery";
 
 interface Props {
   params: Promise<{
@@ -31,14 +32,18 @@ interface Props {
 }
 
 export async function generateStaticParams() {
-  return eventsData.map((event) => ({
+  const params = eventsData.map((event) => ({
     slug: event.slug,
   }));
+  // Alias reforged26 to reforged-26 so both URLs resolve seamlessly
+  params.push({ slug: "reforged26" });
+  return params;
 }
 
 export default async function EventDetailPage({ params }: Props) {
   const { slug } = await params;
-  const event = eventsData.find((e) => e.slug === slug);
+  const normalizedSlug = slug === "reforged26" ? "reforged-26" : slug;
+  const event = eventsData.find((e) => e.slug === normalizedSlug);
 
   if (!event) {
     notFound();
@@ -70,6 +75,16 @@ export default async function EventDetailPage({ params }: Props) {
           {event.timelineStatus === "Upcoming" && (
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono font-bold animate-pulse">
               ● UPCOMING
+            </span>
+          )}
+          {event.timelineStatus === "Past" && (
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/40 text-emerald-400 text-xs font-mono font-bold">
+              ✓ CONCLUDED
+            </span>
+          )}
+          {isReforged && (
+            <span className="hidden sm:inline-flex items-center gap-1 font-cabin-sketch text-xs sm:text-sm px-3 py-1 rounded-full bg-[#FFBE0D]/15 text-[#FFBE0D] border border-[#FFBE0D]/40 font-bold">
+              FLAGSHIP HACKATHON
             </span>
           )}
         </div>
@@ -146,13 +161,20 @@ export default async function EventDetailPage({ params }: Props) {
                 <div className="p-5 sm:p-6 mb-8 rounded-2xl bg-gradient-to-r from-[#1c1800] via-[#161616] to-[#121212] border-2 border-primary shadow-[4px_4px_0px_#FFBE0D]">
                   <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-5">
                     <div className="flex-1 min-w-0 pr-0 md:pr-4">
+                      <div className="flex items-center gap-2 mb-2 flex-wrap">
+                        <span className="px-2.5 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-500/40 text-emerald-400 font-mono text-[11px] font-bold">
+                          ✓ SUCCESSFULLY CONCLUDED
+                        </span>
+                        <span className="px-2.5 py-0.5 rounded-full bg-primary/15 border border-primary/40 text-primary font-mono text-[11px] font-bold">
+                          ★ FLAGSHIP HACKATHON
+                        </span>
+                      </div>
                       <h3 className="font-sketch-block text-xl sm:text-2xl text-white font-bold flex items-center gap-2">
                         <Trophy className="text-[#FFBE0D] shrink-0" size={22} />
-                        <span>Official Reforged '26 Registration</span>
+                        <span>Reforged '26 Official Portal & Archive</span>
                       </h3>
                       <p className="font-averta-std text-xs sm:text-sm text-neutral-300 mt-1">
-                        Explore problem tracks, submit architecture blueprints,
-                        and join the offline hackathon.
+                        Explore the problem tracks, offline finale photo gallery, and official portal archive.
                       </p>
                     </div>
                     <div className="w-full md:w-auto flex flex-col items-end gap-2.5 shrink-0 md:ml-auto">
@@ -183,8 +205,53 @@ export default async function EventDetailPage({ params }: Props) {
                 </div>
               )}
 
+              {/* Quick In-Page Navigation Bar */}
+              <div className="sticky top-20 z-30 -mx-2 px-3 py-2.5 mb-8 rounded-2xl bg-neutral-900/90 backdrop-blur-md border border-neutral-800 flex items-center gap-2 overflow-x-auto no-scrollbar shadow-lg">
+                <span className="text-[11px] font-mono text-neutral-400 uppercase tracking-wider px-1 shrink-0">
+                  Quick Jump:
+                </span>
+                <a
+                  href="#overview"
+                  className="px-3 py-1 rounded-lg text-xs font-semibold bg-neutral-800/90 border border-neutral-700/80 text-neutral-300 hover:text-primary hover:border-primary transition-colors whitespace-nowrap"
+                >
+                  Overview & Highlights
+                </a>
+                {isReforged && event.tracks && (
+                  <a
+                    href="#tracks"
+                    className="px-3 py-1 rounded-lg text-xs font-semibold bg-neutral-800/90 border border-neutral-700/80 text-neutral-300 hover:text-primary hover:border-primary transition-colors whitespace-nowrap"
+                  >
+                    Problem Tracks ({event.tracks.length})
+                  </a>
+                )}
+                {isReforged && event.rounds && (
+                  <a
+                    href="#schedule"
+                    className="px-3 py-1 rounded-lg text-xs font-semibold bg-neutral-800/90 border border-neutral-700/80 text-neutral-300 hover:text-primary hover:border-primary transition-colors whitespace-nowrap"
+                  >
+                    Rounds & Dates
+                  </a>
+                )}
+                {event.gallery && event.gallery.length > 0 && (
+                  <a
+                    href="#gallery"
+                    className="px-3 py-1 rounded-lg text-xs font-semibold bg-primary/15 border border-primary/40 text-primary hover:bg-primary hover:text-black transition-colors whitespace-nowrap font-bold"
+                  >
+                    Photo Gallery ({event.gallery.length})
+                  </a>
+                )}
+                {isReforged && event.perks && (
+                  <a
+                    href="#perks"
+                    className="px-3 py-1 rounded-lg text-xs font-semibold bg-neutral-800/90 border border-neutral-700/80 text-neutral-300 hover:text-primary hover:border-primary transition-colors whitespace-nowrap"
+                  >
+                    Perks & Goodies
+                  </a>
+                )}
+              </div>
+
               {/* Compact Side-by-Side: Overview (col-span-7) & Highlights (col-span-5) */}
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-4">
+              <div id="overview" className="scroll-mt-36 grid grid-cols-1 lg:grid-cols-12 gap-8 mb-4">
                 <div className="lg:col-span-7">
                   <h2 className="font-sketch-block text-2xl sm:text-3xl font-bold text-white mb-3 flex items-center gap-2">
                     <span className="text-primary">//</span>
@@ -440,35 +507,7 @@ export default async function EventDetailPage({ params }: Props) {
 
           {/* Priority 2: Event Snapshots & Photo Archive */}
           {event.gallery && event.gallery.length > 0 && (
-            <div>
-              <div className="flex items-center justify-between flex-wrap gap-2 mb-5">
-                <h2 className="font-sketch-block text-2xl sm:text-3xl font-bold text-white flex items-center gap-2">
-                  <Camera size={24} className="text-primary" />
-                  <span>
-                    Event Snapshots & Archive ({event.gallery.length})
-                  </span>
-                </h2>
-                <span className="font-mono text-xs text-neutral-400">
-                  On-Site Photography & Lab Captures
-                </span>
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                {event.gallery.map((img, i) => (
-                  <div
-                    key={i}
-                    className="relative w-full h-64 sm:h-72 md:h-80 rounded-2xl overflow-hidden border border-neutral-800 bg-neutral-900 group shadow-md"
-                  >
-                    <Image
-                      src={img}
-                      alt={`${event.name} photo ${i + 1}`}
-                      fill
-                      sizes="(max-width: 768px) 100vw, 600px"
-                      className="object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
-                ))}
-              </div>
-            </div>
+            <EventGallery images={event.gallery} eventName={event.name} />
           )}
 
           {/* Speakers / Mentors Section */}
@@ -598,16 +637,16 @@ export default async function EventDetailPage({ params }: Props) {
             <>
               {/* Problem Tracks */}
               {event.tracks && (
-                <div>
+                <div id="tracks" className="scroll-mt-24">
                   <h2 className="font-sketch-block text-2xl sm:text-3xl font-bold text-white mb-4 flex items-center gap-2">
                     <span className="text-primary">//</span>
-                    <span>Problem Tracks</span>
+                    <span>Problem Tracks ({event.tracks.length})</span>
                   </h2>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                     {event.tracks.map((track, i) => (
                       <div
                         key={i}
-                        className="p-5 rounded-xl bg-neutral-900 border border-neutral-800 flex flex-col justify-between"
+                        className="p-5 rounded-xl bg-neutral-900 border border-neutral-800 flex flex-col justify-between hover:border-primary/50 transition-colors"
                       >
                         <div>
                           <div className="flex items-center gap-2 text-primary font-mono text-xs uppercase font-bold mb-2">
@@ -629,7 +668,7 @@ export default async function EventDetailPage({ params }: Props) {
 
               {/* Schedule & Evaluation Rounds */}
               {event.rounds && (
-                <div>
+                <div id="schedule" className="scroll-mt-24">
                   <h2 className="font-sketch-block text-2xl sm:text-3xl font-bold text-white mb-4 flex items-center gap-2">
                     <span className="text-primary">//</span>
                     <span>Schedule & Evaluation Rounds</span>
@@ -638,7 +677,7 @@ export default async function EventDetailPage({ params }: Props) {
                     {event.rounds.map((round, i) => (
                       <div
                         key={i}
-                        className="p-5 rounded-xl bg-neutral-900 border border-neutral-800 flex flex-col justify-between"
+                        className="p-5 rounded-xl bg-neutral-900 border border-neutral-800 flex flex-col justify-between hover:border-primary/40 transition-colors"
                       >
                         <div>
                           {/* Round Header: Phase Pill + Clean Single-Line Date Badge */}
@@ -676,7 +715,7 @@ export default async function EventDetailPage({ params }: Props) {
 
               {/* Perks & Goodies */}
               {event.perks && (
-                <div>
+                <div id="perks" className="scroll-mt-24">
                   <h2 className="font-sketch-block text-2xl sm:text-3xl font-bold text-white mb-4 flex items-center gap-2">
                     <span className="text-primary">//</span>
                     <span>Perks & Goodies</span>
@@ -685,7 +724,7 @@ export default async function EventDetailPage({ params }: Props) {
                     {event.perks.map((perk, i) => (
                       <div
                         key={i}
-                        className="p-4 rounded-xl bg-neutral-900/80 border border-neutral-800 flex items-start gap-3"
+                        className="p-4 rounded-xl bg-neutral-900/80 border border-neutral-800 flex items-start gap-3 hover:border-primary/40 transition-colors"
                       >
                         <Gift
                           size={18}

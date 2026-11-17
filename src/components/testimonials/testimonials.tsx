@@ -79,15 +79,15 @@ function EventCardBanner({ event }: { event: EventItem }) {
             REFORGED '26 HACKATHON
           </h4>
           <p className="font-mono text-xs sm:text-sm text-neutral-300 mt-1">
-            n8n Sponsored Track · Agentic AI · Open Innovation
+            n8n · Agentic AI · Gemma · Open Innovation
           </p>
         </div>
         <div className="flex flex-wrap items-center gap-2">
           <span className="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-700 text-[11px] text-primary font-bold">
-            ₹10K Cash + Perks
+            ₹10K Cash + ₹1L Swag
           </span>
           <span className="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-700 text-[11px] text-neutral-300 font-mono">
-            15 - 30 Oct 2026
+            18 - 28 Oct 2026
           </span>
           <span className="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-700 text-[11px] text-neutral-300 font-mono">
             BPIT Delhi
@@ -323,10 +323,15 @@ export default function Testimonials() {
                 >
                   {/* Top Bar: Category Tag + Year Pill */}
                   <div className="flex items-center justify-between gap-2 border-b border-neutral-800/80 pb-3">
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-2 flex-wrap">
                       <span className="font-cabin-sketch text-xs sm:text-sm text-primary uppercase tracking-widest font-bold">
                         // {event.category.toUpperCase()}
                       </span>
+                      {isReforged && (
+                        <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-amber-500/15 border border-[#FFBE0D]/40 text-[#FFBE0D] text-[10px] sm:text-xs font-mono font-bold">
+                          🏆 BPIT'S MOST SUCCESSFUL HACKATHON
+                        </span>
+                      )}
                       {event.timelineStatus === "Upcoming" && (
                         <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-[10px] sm:text-xs font-mono font-bold animate-pulse">
                           ● UPCOMING

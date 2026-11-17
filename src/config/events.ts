@@ -460,36 +460,43 @@ export const eventsData: EventItem[] = [
     slug: "reforged-26",
     name: "Reforged '26 Hackathon",
     category: "Hackathon",
-    badge: "Upcoming Flagship",
-    date: "15-10-2026 to 30-10-2026",
+    badge: "Flagship Hackathon",
+    date: "18-10-2026 to 28-10-2026",
     year: "2026",
-    timelineStatus: "Upcoming",
+    timelineStatus: "Past",
     location: "Hybrid (Online Evaluation + Offline Finale at BPIT, Delhi)",
-    attendeesCount: "600+ Hackers Expected",
-    prizePool: "₹10,000 Cash + Swag & Goodies",
+    attendeesCount: "600+ Hackers Participated",
+    prizePool: "₹10,000 Cash + ₹1 Lakh Worth Swags & Goodies",
     bannerFormat: "widescreen",
     image: "/assets/event-photos/Reforged 26/banner.webp",
     cardImage: "/assets/event-photos/Reforged 26/banner.webp",
     shortSummary:
-      "Anveshan's upcoming premier hybrid hackathon featuring n8n workflows, Agentic AI tracks, cash prizes, and an offline BPIT finale.",
+      "Anveshan's premier flagship hackathon uniting 600+ builders across n8n, Agentic AI, Google Gemma, and Open Innovation at BPIT, Delhi.",
     description:
-      "Reforged '26 is Anveshan's upcoming premier flagship hackathon, bringing together innovative student builders, designers, and problem-solvers from across the country to tackle real-world engineering challenges.\n\nStructured as a multi-stage hybrid hackathon, Reforged '26 begins with online evaluation rounds focusing on architecture design and working prototype implementation, culminating in an electrifying 30-hour offline finale hosted on-site at BPIT, New Delhi. Featuring specialized sponsored tracks from n8n and advanced Agentic AI challenges, Reforged '26 offers competitors direct access to cutting-edge developer platforms, mentorship, generous cash rewards, and industry recognition.",
+      "Reforged '26 is Anveshan's premier flagship hackathon, bringing together 600+ ambitious student developers, designers, and problem-solvers from across the country to tackle real-world engineering challenges.\n\nMoving beyond slide decks, the multi-stage hybrid sprint challenged teams to architect production-ready software—progressing from online prototype evaluations to an electrifying 10-hour offline finale on-site at the BPIT Campus.",
     highlights: [
-      "Online Rounds 1 & 2 on 15 October 2026: Architecture & working prototype submission",
-      "Offline Finale on 30 October 2026: 30-hour in-person marathon hosted on-site at BPIT, New Delhi",
-      "₹10,000 Cash Prize Pool + Goodies and swag bags for all participants & winners",
-      "Free n8n developer accounts provided for every qualifying team",
-      "Complimentary meals, energy drinks, and snacks throughout the offline finale",
-      "Direct technical mentorship from startup founders and senior engineers",
+      "600+ student developers & innovators registered nationwide",
+      "Two-phase hybrid format: Online prototype sprint followed by 10-hour BPIT offline finale",
+      "₹10,000 cash rewards + ₹1 Lakh in swags, Kiro AI credits & developer perks",
+      "Direct 1-on-1 architecture mentorship and jury evaluation from industry engineers",
     ],
     officialLink: "https://reforged.anveshan.dev",
     whatsappLink:
       "https://chat.whatsapp.com/FUCjtbFuqxj3U4nEbuJYUr?s=cl&p=a&mlu=4&ilr=4",
+    gallery: [
+      "/assets/event-photos/Reforged 26/PXL_20261028_091305814.MP.jpg",
+      "/assets/event-photos/Reforged 26/PXL_20261028_105352860.MP.jpg",
+      "/assets/event-photos/Reforged 26/tingIMG_20261028_102157.jpg",
+      "/assets/event-photos/Reforged 26/IMG_6779.jpg",
+      "/assets/event-photos/Reforged 26/IMG_7375.JPG",
+    ],
     perks: [
-      "Free n8n account for every qualifying team",
-      "Free meals, snacks, and beverages during the offline round",
-      "Exclusive swag packs and certificates for all attendees",
-      "Direct mentorship and evaluation by industry judges",
+      "$70 worth Kiro AI credits to all participants",
+      "$25 digital gift cards to winners",
+      "Exclusive mechanical keyboards to Gemma and n8n track winners",
+      "Free n8n developer accounts for qualifying teams",
+      "₹1,00,000+ worth of exclusive swags, stickers, tees, and goodies",
+      "Complimentary meals, snacks, and beverages during the offline round at BPIT",
     ],
     tracks: [
       {
@@ -503,6 +510,11 @@ export const eventsData: EventItem[] = [
           "Autonomous multi-agent systems, intelligent tool execution, persistent memory systems, and multi-step reasoning.",
       },
       {
+        title: "Gemma Track",
+        description:
+          "Fine-tuning, on-device AI, and multimodal solutions built using Google's state-of-the-art open model family (Gemma 2, CodeGemma & PaliGemma).",
+      },
+      {
         title: "Open Innovation Track",
         description:
           "FinTech, Web3, DevTools, CyberSecurity, IoT, HealthTech, and real-world high-impact engineering solutions.",
@@ -510,16 +522,16 @@ export const eventsData: EventItem[] = [
     ],
     rounds: [
       {
-        title: "Online Rounds 1 & 2: Architecture & Working Prototype",
-        date: "15 October 2026",
+        title: "Round 1 (Online): Architecture & Working Prototype",
+        date: "18 - 20 October 2026",
         description:
-          "Teams submit system architecture blueprints and working MVP repositories via the dedicated portal.",
+          "Teams submitted system architecture blueprints and working MVP repositories via the dedicated portal.",
       },
       {
-        title: "Offline Grand Finale: 10-Hour On-Site Hackathon",
-        date: "30 October 2026",
+        title: "Round 2 (Offline Grand Finale): 10-Hour On-Site Hackathon",
+        date: "28 October 2026",
         description:
-          "Finalist teams hack on-site at BPIT Delhi, featuring live mentor checkpoints and jury presentations.",
+          "Finalist teams battled it out live on-site at BPIT Delhi, featuring live mentor checkpoints and jury presentations.",
       },
     ],
   },

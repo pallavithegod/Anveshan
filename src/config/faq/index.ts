@@ -10,15 +10,15 @@ export const questions: Question[] = [
   {
     question: "What is Reforged '26?",
     answer:
-      "Reforged '26 is Anveshan's flagship hackathon hosted at BPIT, Delhi. It is not another 'make a PPT and call it innovation' hackathon — it's focused purely on solid technical architecture, working prototypes, and shipping software that actually works.",
+      "Reforged '26 is Anveshan's premier flagship hackathon hosted at BPIT, Delhi. Organized by Anveshan, it was focused purely on solid technical architecture, working prototypes, and shipping software that actually works.",
     answerStyle: "h-44",
     questionStyle: "mb-44 -bottom-44",
     fontSizeScaling: "text-[clamp(0.82rem,2vw,0.95rem)]",
   },
   {
-    question: "What are the key dates, rounds, and venue?",
+    question: "What were the key dates, rounds, and venue?",
     answer:
-      "Reforged '26 features two stages: Round 1 & Round 2 are Online on 15 October 2026 (submit your architecture and working prototype). Shortlisted teams then battle it out live at the Offline Finale at BPIT Campus, Delhi on 30 October 2026!",
+      "Reforged '26 featured two stages: Round 1 Online from 18 to 20 October 2026 (architecture & prototype submission). Shortlisted teams then battled it out live at the 10-Hour Offline Finale on-site at BPIT Campus, Delhi on 28 October 2026!",
     answerStyle: "h-44",
     questionStyle: "mb-44 -bottom-44",
     fontSizeScaling: "text-[clamp(0.82rem,2vw,0.95rem)]",
@@ -32,17 +32,17 @@ export const questions: Question[] = [
     fontSizeScaling: "text-[clamp(0.82rem,2vw,0.95rem)]",
   },
   {
-    question: "What are the hackathon tracks?",
+    question: "What were the hackathon tracks?",
     answer:
-      "We have three battlegrounds: (1) n8n Sponsored Track: AI workflows, integrations, data pipelines & automation; (2) Agentic Track: Autonomous multi-agent systems and intelligent tools; (3) Open Innovation: FinTech, Web3, CyberSecurity, HealthTech, DevTools, or IoT.",
+      "We featured four battlegrounds: (1) n8n Sponsored Track: AI workflows, integrations & automation pipelines; (2) Agentic Track: Autonomous multi-agent systems and intelligent tools; (3) Gemma Track: On-device AI, fine-tuning & multimodal apps using Google Gemma models; (4) Open Innovation: FinTech, Web3, CyberSecurity, HealthTech, DevTools, or IoT.",
     answerStyle: "h-48",
     questionStyle: "mb-48 -bottom-48",
     fontSizeScaling: "text-[clamp(0.8rem,2vw,0.92rem)]",
   },
   {
-    question: "What prizes, perks, and food are provided?",
+    question: "What prizes, perks, and food were provided?",
     answer:
-      "Reforged '26 offers a ₹10,000 prize pool plus goodies for winners and participants. Every qualifying offline team receives a FREE n8n account, plus delicious meals and snacks provided free of cost during the offline finale at BPIT!",
+      "Reforged '26 awarded ₹10,000 cash prizes plus over ₹1,00,000 worth of swags and goodies for participants and winners. Every qualifying team received free n8n accounts, plus delicious meals and snacks provided free during the offline finale at BPIT!",
     answerStyle: "h-44",
     questionStyle: "mb-44 -bottom-44",
     fontSizeScaling: "text-[clamp(0.82rem,2vw,0.95rem)]",
