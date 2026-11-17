@@ -24,14 +24,14 @@ export default function EventGallery({ images, eventName }: EventGalleryProps) {
   const showPrev = useCallback(() => {
     if (selectedIndex === null) return;
     setSelectedIndex((prev) =>
-      prev === null ? null : prev === 0 ? images.length - 1 : prev - 1
+      prev === null ? null : prev === 0 ? images.length - 1 : prev - 1,
     );
   }, [selectedIndex, images.length]);
 
   const showNext = useCallback(() => {
     if (selectedIndex === null) return;
     setSelectedIndex((prev) =>
-      prev === null ? null : prev === images.length - 1 ? 0 : prev + 1
+      prev === null ? null : prev === images.length - 1 ? 0 : prev + 1,
     );
   }, [selectedIndex, images.length]);
 
@@ -118,7 +118,9 @@ export default function EventGallery({ images, eventName }: EventGalleryProps) {
                       : "(max-width: 640px) 100vw, 600px"
                   }
                   className={`${
-                    isElongated ? "object-contain sm:object-cover" : "object-cover"
+                    isElongated
+                      ? "object-contain sm:object-cover"
+                      : "object-cover"
                   } group-hover:scale-105 transition-transform duration-500 ease-out`}
                 />
               </div>

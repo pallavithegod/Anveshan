@@ -45,7 +45,11 @@ function AchieverCard({
           className="p-1 sm:p-1.5 rounded-lg bg-neutral-900 border border-neutral-700/80 text-primary hover:text-white hover:border-primary transition-colors shadow-[1px_1px_0px_0px_#000000] active:translate-x-[1px] active:translate-y-[1px]"
           aria-label={`${achiever.name} LinkedIn Profile`}
         >
-          <Linkedin size={14} className="sm:w-[18px] sm:h-[18px]" strokeWidth={2.2} />
+          <Linkedin
+            size={14}
+            className="sm:w-[18px] sm:h-[18px]"
+            strokeWidth={2.2}
+          />
         </Link>
         <span className="font-cabin-sketch text-[8px] sm:text-[10px] text-neutral-400 uppercase tracking-widest">
           // {synonym}

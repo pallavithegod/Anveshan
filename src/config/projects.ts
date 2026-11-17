@@ -34,6 +34,17 @@ export const projectsData: ProjectItem[] = [
   },
   {
     id: 3,
+    name: "AsteroTerrain",
+    owner: "Manan Jain",
+    GithubRepo: "https://github.com/MananJain-20/AstroTerrain",
+    Deployment: "https://astro-terrain.vercel.app/",
+    image: "/assets/projects/Manan Jain.png",
+    Work: "Space Mission Testing",
+    description:
+      "A web app to help find testing sites for moon or martian space missions.",
+  },
+  {
+    id: 4,
     name: "DhunMart",
     owner: "Surender",
     GithubRepo: "https://github.com/surender18/DhunMart",
@@ -44,7 +55,7 @@ export const projectsData: ProjectItem[] = [
       "Online platform for electronics enthusiasts, specializing in high-quality earphones and audio gear.",
   },
   {
-    id: 4,
+    id: 5,
     name: "Quizzical",
     owner: "Aadish Jain",
     GithubRepo: "https://github.com/aadishj23/Quiz-App",
@@ -54,7 +65,7 @@ export const projectsData: ProjectItem[] = [
     description: "Quiz from 7+ categories and 3 difficulty levels",
   },
   {
-    id: 5,
+    id: 6,
     name: "Sanskaar Group Website",
     owner: "Kaushal and Tanay",
     GithubRepo: "https://github.com/sanskaargroup/sg-website",
@@ -64,7 +75,7 @@ export const projectsData: ProjectItem[] = [
     description: "Manage all types of social and corporate events",
   },
   {
-    id: 6,
+    id: 7,
     name: "Learniverse",
     owner: "Tanay Kumar",
     GithubRepo: "https://github.com/tanaykmr/learniverse",
@@ -75,7 +86,7 @@ export const projectsData: ProjectItem[] = [
       "A platform for educators to teach to the masses and for students to have quality education with their choice of tutors.",
   },
   {
-    id: 7,
+    id: 8,
     name: "ReelPick",
     owner: "Shubham Kumar",
     GithubRepo: "https://github.com/shubham-kumar4285/reelpick/",
@@ -84,15 +95,5 @@ export const projectsData: ProjectItem[] = [
     Work: "Movie Recommendation App",
     description:
       "Reel Pick helps you find movies you'll love based on your preferences.",
-  },
-  {
-    id: 8,
-    name: "Financify",
-    owner: "Keshav Mehra",
-    GithubRepo: "https://github.com/Airbone25/nextjs-finance-dashboard.git",
-    Deployment: "https://nextjs-finance-dashboard-gamma.vercel.app/dashboard",
-    image: "/assets/projects/7.png",
-    Work: "Finance Dashboard app",
-    description: "Manage invoices and customers with this one web app",
   },
 ];

@@ -174,7 +174,8 @@ export default async function EventDetailPage({ params }: Props) {
                         <span>Reforged '26 Official Portal & Archive</span>
                       </h3>
                       <p className="font-averta-std text-xs sm:text-sm text-neutral-300 mt-1">
-                        Explore the problem tracks, offline finale photo gallery, and official portal archive.
+                        Explore the problem tracks, offline finale photo
+                        gallery, and official portal archive.
                       </p>
                     </div>
                     <div className="w-full md:w-auto flex flex-col items-end gap-2.5 shrink-0 md:ml-auto">
@@ -251,7 +252,10 @@ export default async function EventDetailPage({ params }: Props) {
               </div>
 
               {/* Compact Side-by-Side: Overview (col-span-7) & Highlights (col-span-5) */}
-              <div id="overview" className="scroll-mt-36 grid grid-cols-1 lg:grid-cols-12 gap-8 mb-4">
+              <div
+                id="overview"
+                className="scroll-mt-36 grid grid-cols-1 lg:grid-cols-12 gap-8 mb-4"
+              >
                 <div className="lg:col-span-7">
                   <h2 className="font-sketch-block text-2xl sm:text-3xl font-bold text-white mb-3 flex items-center gap-2">
                     <span className="text-primary">//</span>

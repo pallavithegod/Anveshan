@@ -55,7 +55,10 @@ function TeamCard({ member, index, showPosition }: TeamCardProps) {
               title="LinkedIn"
               aria-label={`${member.name} LinkedIn`}
             >
-              <Linkedin size={11} className="sm:w-[13px] sm:h-[13px] shrink-0" />
+              <Linkedin
+                size={11}
+                className="sm:w-[13px] sm:h-[13px] shrink-0"
+              />
             </Link>
           )}
 
@@ -172,11 +175,7 @@ export default function TeamSection() {
 
             {/* Draggable Marquee with continuous auto-scroll and momentum */}
             <div className="w-full py-2 sm:py-4">
-              <DraggableMarquee
-                speed={36}
-                direction="left"
-                pauseOnHover={true}
-              >
+              <DraggableMarquee speed={36} direction="left" pauseOnHover={true}>
                 {seniorCouncil.map((member, index) => (
                   <div key={`sc-${member.id}`} className="px-2 sm:px-3">
                     <TeamCard

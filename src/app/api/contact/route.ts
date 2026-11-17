@@ -87,10 +87,7 @@ export async function POST(request: NextRequest) {
     }
 
     if (!formspreeSuccess && errorMessage) {
-      return NextResponse.json(
-        { error: errorMessage },
-        { status: 502 },
-      );
+      return NextResponse.json({ error: errorMessage }, { status: 502 });
     }
 
     return NextResponse.json(

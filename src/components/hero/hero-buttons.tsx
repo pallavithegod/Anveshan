@@ -32,9 +32,7 @@ export function handleRedirect(type: string) {
 
 export default function DevfolioAndDiscordButtons() {
   return (
-    <div
-      className="relative z-40 flex flex-col sm:flex-row justify-center items-center w-full px-4 gap-3 sm:gap-6 mt-4 sm:mt-3.5 lg:mt-4"
-    >
+    <div className="relative z-40 flex flex-col sm:flex-row justify-center items-center w-full px-4 gap-3 sm:gap-6 mt-4 sm:mt-3.5 lg:mt-4">
       <button
         className="group h-13 sm:h-14 lg:h-16 px-6 sm:px-8 w-[270px] sm:w-auto sm:min-w-[240px] md:min-w-[270px] flex flex-row items-center justify-center gap-3 cursor-pointer bg-primary text-black font-bold rounded-2xl border-2 border-[#c79200] shadow-[3px_3px_0px_0px_#8a6500] sm:shadow-[4px_4px_0px_0px_#8a6500] hover:shadow-[6px_6px_0px_0px_#8a6500] hover:-translate-y-1 active:translate-y-0.5 hover:brightness-105 transition-all duration-200 select-none"
         onClick={() => handleScrollTo("events")}

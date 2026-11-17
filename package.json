@@ -10,8 +10,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
-    "format": "prettier --write .",
-    "prepare": "husky || true"
+    "format": "prettier --write ."
   },
   "dependencies": {
     "@tanstack/react-table": "^8.21.3",
